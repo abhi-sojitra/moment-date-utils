@@ -110,6 +110,38 @@ function getDaysCount(startDate, endDate) {
   return end.diff(start, "days") + 1; // Adding 1 to include both start and end dates
 }
 
+/**
+ * Get the current month.
+ * @returns {number} Current month (1-12).
+ */
+function getCurrentMonth() {
+  return moment().month() + 1; // Adding 1 because Moment.js months are zero-based
+}
+
+/**
+ * Get the current year.
+ * @returns {number} Current year (YYYY).
+ */
+function getCurrentYear() {
+  return moment().year();
+}
+
+/**
+ * Get the current day of the month.
+ * @returns {number} Current day of the month (1-31).
+ */
+function getCurrentDay() {
+  return moment().date();
+}
+
+/**
+ * Get the current time formatted as 'HH:mm:ss'.
+ * @returns {string} Current time string in 'HH:mm:ss' format.
+ */
+function getCurrentTime() {
+  return moment().format("HH:mm:ss");
+}
+
 module.exports = {
   formatDate,
   formatTime,
@@ -121,4 +153,8 @@ module.exports = {
   getLast7Months,
   formatTimeWithAMPM,
   getDaysCount,
+  getCurrentMonth,
+  getCurrentYear,
+  getCurrentDay,
+  getCurrentTime,
 };

@@ -24,8 +24,10 @@ console.log(getLast3Months()); // Outputs current and 3 months ago dates
 console.log(getLast7Months()); // Outputs current and 7 months ago dates
 console.log(formatTimeWithAMPM(date)); // Outputs time with AM/PM format
 console.log(getDaysCount(startDate, endDate)); // Outputs: 15 (example)
-
-
+console.log(getCurrentMonth()); // Outputs: Current month number (example: 6 for June)
+console.log(getCurrentYear()); // Outputs: Current year (example: 2024)
+console.log(getCurrentDay()); // Outputs: Current day of the month (example: 16)
+console.log(getCurrentTime()); // Outputs: Current time in 'HH:mm:ss' format (example: 14:35:10
 ```
 
 ## Functions
@@ -40,3 +42,7 @@ console.log(getDaysCount(startDate, endDate)); // Outputs: 15 (example)
 8. getLast7Months,
 9. formatTimeWithAMPM
 10. getDaysCount
+11. getCurrentMonth
+12. getCurrentYear
+13. getCurrentDay
+14. getCurrentTime
