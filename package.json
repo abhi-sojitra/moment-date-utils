@@ -1,0 +1,22 @@
+{
+  "name": "moment-date-utils",
+  "version": "1.0.1",
+  "description": "A package to format dates and times using moment.js",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/moment-date-utils.git"
+  },
+  "keywords": [
+    "moment",
+    "date",
+    "time",
+    "formatting",
+    "utils"
+  ],
+  "author": "Abhishek Sojitra",
+  "license": "MIT",
+  "dependencies": {
+    "moment": "^2.29.1"
+  }
+}
