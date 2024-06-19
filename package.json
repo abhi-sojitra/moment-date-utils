@@ -1,6 +1,6 @@
 {
   "name": "moment-date-utils",
-  "version": "1.0.5",
+  "version": "1.0.9",
   "description": "A package to format dates and times using moment.js",
   "main": "index.js",
   "repository": {
@@ -17,6 +17,7 @@
   "author": "Abhishek Sojitra",
   "license": "MIT",
   "dependencies": {
-    "moment": "^2.29.1"
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.45"
   }
 }
