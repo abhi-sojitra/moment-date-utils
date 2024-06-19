@@ -571,6 +571,24 @@ function isHoliday(date, holidays) {
   return holidays.some((holiday) => moment(date).isSame(holiday, "day"));
 }
 
+/**
+ * Convert a date to UTC.
+ * @param {Date|string} date - The date to convert.
+ * @returns {string} UTC date string.
+ */
+function convertToUTC(date) {
+  return moment(date).utc().format();
+}
+
+/**
+ * Convert a UTC date to local time.
+ * @param {string} utcDate - The UTC date string to convert.
+ * @returns {string} Local time date string.
+ */
+function convertUTCToLocal(utcDate) {
+  return moment.utc(utcDate).local().format();
+}
+
 module.exports = {
   formatDate,
   formatTime,
@@ -628,4 +646,6 @@ module.exports = {
   isSameOrBefore,
   isSameOrAfter,
   isHoliday,
+  convertToUTC,
+  convertUTCToLocal
 };

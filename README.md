@@ -70,6 +70,9 @@ console.log(isBetween('2024-06-10', '2024-06-01', '2024-06-15')); // Outputs: tr
 console.log(isSameOrBefore('2024-06-01', '2024-06-15')); // Outputs: true
 console.log(isSameOrAfter('2024-06-15', '2024-06-01')); // Outputs: true
 console.log(isHoliday('2024-12-25', ['2024-12-25', '2024-01-01'])); // Outputs: true
+console.log(convertToUTC('2024-06-19T14:30:00')); // Outputs: 2024-06-19T09:00:00Z
+console.log(convertUTCToLocal('2025-05-25T00:00:00Z')) // Outputs: 2025-05-25T05:30:00+05:30
+
 ```
 
 ## Functions
