@@ -571,6 +571,248 @@ function isHoliday(date, holidays) {
   return holidays.some((holiday) => moment(date).isSame(holiday, "day"));
 }
 
+/**
+ * Check if a date is a weekday.
+ * @param {Date|string} date - The date to check.
+ * @returns {boolean} True if the date is a weekday, false otherwise.
+ */
+function isWeekday(date) {
+  const day = moment(date).day();
+  return day >= 1 && day <= 5;
+}
+
+/**
+ * Get the number of weeks in a year.
+ * @param {number} year - The year to check.
+ * @returns {number} The number of weeks in the specified year.
+ */
+function getWeeksInYear(year) {
+  return moment(`${year}-12-31`).isoWeeks();
+}
+
+/**
+ * Calculate the age based on a given birth date.
+ * @param {Date|string} birthDate - The birth date.
+ * @returns {number} The age in years.
+ */
+function calculateAge(birthDate) {
+  return moment().diff(moment(birthDate), "years");
+}
+
+/**
+ * Check if a date is today.
+ * @param {Date|string} date - The date to check.
+ * @returns {boolean} True if the date is today, false otherwise.
+ */
+function isToday(date) {
+  return moment(date).isSame(new Date(), "day");
+}
+
+/**
+ * Check if a date is in the past.
+ * @param {Date|string} date - The date to check.
+ * @returns {boolean} True if the date is in the past, false otherwise.
+ */
+function isPast(date) {
+  return moment(date).isBefore(new Date(), "day");
+}
+
+/**
+ * Check if a date is in the future.
+ * @param {Date|string} date - The date to check.
+ * @returns {boolean} True if the date is in the future, false otherwise.
+ */
+function isFuture(date) {
+  return moment(date).isAfter(new Date(), "day");
+}
+
+/**
+ * Get the start of the next month.
+ * @returns {Date} The start of the next month.
+ */
+function getStartOfNextMonth() {
+  return moment().add(1, "months").startOf("month").toDate();
+}
+
+/**
+ * Get the end of the previous month.
+ * @returns {Date} The end of the previous month.
+ */
+function getEndOfPreviousMonth() {
+  return moment().subtract(1, "months").endOf("month").toDate();
+}
+
+/**
+ * Get the total number of days between two dates.
+ * @param {Date|string} startDate - The start date.
+ * @param {Date|string} endDate - The end date.
+ * @returns {number} The total number of days between the two dates.
+ */
+function getTotalDaysBetween(startDate, endDate) {
+  return moment(endDate).diff(moment(startDate), "days");
+}
+
+/**
+ * Get the total number of business days between two dates.
+ * @param {Date|string} startDate - The start date.
+ * @param {Date|string} endDate - The end date.
+ * @returns {number} The total number of business days between the two dates.
+ */
+function getTotalBusinessDaysBetween(startDate, endDate) {
+  const start = moment(startDate);
+  const end = moment(endDate);
+  let totalBusinessDays = 0;
+
+  while (start.isBefore(end)) {
+    if (start.day() !== 0 && start.day() !== 6) {
+      totalBusinessDays++;
+    }
+    start.add(1, "days");
+  }
+
+  return totalBusinessDays;
+}
+
+/**
+ * Get the next occurrence of a specific day of the week.
+ * @param {Date|string} date - The reference date.
+ * @param {number} dayOfWeek - The day of the week (0 for Sunday, 1 for Monday, etc.).
+ * @returns {Date} The next occurrence of the specified day of the week.
+ */
+function getNextDayOfWeek(date, dayOfWeek) {
+  return moment(date)
+    .day(dayOfWeek + 7)
+    .toDate();
+}
+
+/**
+ * Get the previous occurrence of a specific day of the week.
+ * @param {Date|string} date - The reference date.
+ * @param {number} dayOfWeek - The day of the week (0 for Sunday, 1 for Monday, etc.).
+ * @returns {Date} The previous occurrence of the specified day of the week.
+ */
+function getPreviousDayOfWeek(date, dayOfWeek) {
+  return moment(date)
+    .day(dayOfWeek - 7)
+    .toDate();
+}
+
+/**
+ * Check if two date ranges overlap.
+ * @param {Date|string} start1 - The start date of the first range.
+ * @param {Date|string} end1 - The end date of the first range.
+ * @param {Date|string} start2 - The start date of the second range.
+ * @param {Date|string} end2 - The end date of the second range.
+ * @returns {boolean} True if the date ranges overlap, false otherwise.
+ */
+function doRangesOverlap(start1, end1, start2, end2) {
+  return moment(start1).isBefore(end2) && moment(start2).isBefore(end1);
+}
+
+/**
+ * Format a date as a relative time string (e.g., "2 days ago").
+ * @param {Date|string} date - The date to format.
+ * @returns {string} The formatted relative time string.
+ */
+function formatRelativeTime(date) {
+  return moment(date).fromNow();
+}
+
+/**
+ * Format a time with AM/PM notation.
+ * @param {Date|string} time - The time to format.
+ * @returns {string} The formatted time string with AM/PM.
+ */
+function formatTimeWithAMPM(time) {
+  return moment(time).format("hh:mm A");
+}
+
+/**
+ * Get the current month as a string.
+ * @returns {string} The current month.
+ */
+function getCurrentMonth() {
+  return moment().format("MMMM");
+}
+
+/**
+ * Get the current year.
+ * @returns {number} The current year.
+ */
+function getCurrentYear() {
+  return moment().year();
+}
+
+/**
+ * Get the current day of the month.
+ * @returns {number} The current day of the month.
+ */
+function getCurrentDay() {
+  return moment().date();
+}
+
+/**
+ * Get the current time as a string in the format "HH:mm:ss".
+ * @returns {string} The current time.
+ */
+function getCurrentTime() {
+  return moment().format("HH:mm:ss");
+}
+
+/**
+ * Get the current time in a specific time zone.
+ * @param {string} timeZone - The time zone to use.
+ * @returns {string} The current time in the specified time zone.
+ */
+function getCurrentTimeInTimeZone(timeZone) {
+  return moment().tz(timeZone).format("HH:mm:ss");
+}
+
+/**
+ * Convert time between two time zones.
+ * @param {Date|string} time - The time to convert.
+ * @param {string} fromTimeZone - The source time zone.
+ * @param {string} toTimeZone - The target time zone.
+ * @returns {string} The converted time.
+ */
+function convertTimeBetweenTimeZones(time, fromTimeZone, toTimeZone) {
+  return moment.tz(time, fromTimeZone).tz(toTimeZone).format("HH:mm:ss");
+}
+
+/**
+ * Get the time difference between two time zones in hours.
+ * @param {string} fromTimeZone - The source time zone.
+ * @param {string} toTimeZone - The target time zone.
+ * @returns {number} The time difference in hours.
+ */
+function getTimeDifferenceBetweenTimeZones(fromTimeZone, toTimeZone) {
+  const from = moment.tz(fromTimeZone);
+  const to = moment.tz(toTimeZone);
+  return to.utcOffset() / 60 - from.utcOffset() / 60;
+}
+
+/**
+ * Add a specific amount of time to a date.
+ * @param {Date|string} date - The original date.
+ * @param {number} amount - The amount of time to add.
+ * @param {string} unit - The unit of time to add (e.g., 'days', 'months').
+ * @returns {Date} The new date with the added time.
+ */
+function addTime(date, amount, unit) {
+  return moment(date).add(amount, unit).toDate();
+}
+
+/**
+ * Subtract a specific amount of time from a date.
+ * @param {Date|string} date - The original date.
+ * @param {number} amount - The amount of time to subtract.
+ * @param {string} unit - The unit of time to subtract (e.g., 'days', 'months').
+ * @returns {Date} The new date with the subtracted time.
+ */
+function subtractTime(date, amount, unit) {
+  return moment(date).subtract(amount, unit).toDate();
+}
+
 module.exports = {
   formatDate,
   formatTime,
@@ -628,4 +870,28 @@ module.exports = {
   isSameOrBefore,
   isSameOrAfter,
   isHoliday,
+  isWeekday,
+  getWeeksInYear,
+  calculateAge,
+  isToday,
+  isPast,
+  isFuture,
+  getStartOfNextMonth,
+  getEndOfPreviousMonth,
+  getTotalDaysBetween,
+  getTotalBusinessDaysBetween,
+  getNextDayOfWeek,
+  getPreviousDayOfWeek,
+  doRangesOverlap,
+  formatRelativeTime,
+  formatTimeWithAMPM,
+  getCurrentMonth,
+  getCurrentYear,
+  getCurrentDay,
+  getCurrentTime,
+  getCurrentTimeInTimeZone,
+  convertTimeBetweenTimeZones,
+  getTimeDifferenceBetweenTimeZones,
+  addTime,
+  subtractTime,
 };

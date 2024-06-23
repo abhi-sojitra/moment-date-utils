@@ -2,12 +2,17 @@
 
 A package to format dates and times using moment.js.
 
+## Medium Blog Link
+
+[MEDIUM](https://medium.com/@abhisheksojitra19/mastering-date-and-time-in-javascript-with-moment-date-utils-dbc7eae966fe)
+
 ## Installation
 
 You can install the package using npm:
 
 ```sh
 npm install moment-date-utils
+
 
 
 ## Demo
@@ -70,6 +75,31 @@ console.log(isBetween('2024-06-10', '2024-06-01', '2024-06-15')); // Outputs: tr
 console.log(isSameOrBefore('2024-06-01', '2024-06-15')); // Outputs: true
 console.log(isSameOrAfter('2024-06-15', '2024-06-01')); // Outputs: true
 console.log(isHoliday('2024-12-25', ['2024-12-25', '2024-01-01'])); // Outputs: true
+console.log(isWeekday('2024-06-20')); // Outputs: true (Thursday)
+console.log(getWeeksInYear(2024)); // Outputs: 52 (or 53 depending on the year)
+console.log(calculateAge('1990-06-15')); // Outputs: 34 (if the current year is 2024)
+console.log(isToday(new Date())); // Outputs: true (if the date is today)
+console.log(isPast('2023-06-20')); // Outputs: true (if the current date is past June 20, 2023)
+console.log(isFuture('2025-06-20')); // Outputs: true (if the current date is before June 20, 2025)
+console.log(getStartOfNextMonth()); // Outputs: Sat Jul 01 2024 00:00:00 GMT+0000 (or similar)
+console.log(getEndOfPreviousMonth()); // Outputs: Fri May 31 2024 23:59:59 GMT+0000 (or similar)
+console.log(getTotalDaysBetween('2024-01-01', '2024-12-31')); // Outputs: 365 (for a non-leap year)
+console.log(getTotalBusinessDaysBetween('2024-01-01', '2024-01-10')); // Outputs: 7 (assuming no holidays)
+console.log(getNextDayOfWeek('2024-06-20', 1)); // Outputs: Mon Jun 24 2024 00:00:00 GMT+0000 (or similar, next Monday)
+console.log(getPreviousDayOfWeek('2024-06-20', 1)); // Outputs: Mon Jun 17 2024 00:00:00 GMT+0000 (or similar, previous Monday)
+console.log(doRangesOverlap('2024-01-01', '2024-01-10', '2024-01-05', '2024-01-15')); // Outputs: true
+console.log(formatRelativeTime('2024-06-20')); // Outputs: "in a year" (if today is 2023-06-20)
+console.log(formatTimeWithAMPM('2024-06-20T14:30:00')); // Outputs: "02:30 PM"
+console.log(getCurrentMonth()); // Outputs: "June" (if today is June)
+console.log(getCurrentYear()); // Outputs: 2024 (if today is 2024)
+console.log(getCurrentDay()); // Outputs: 20 (if today is the 20th of the month)
+console.log(getCurrentTime()); // Outputs: "14:30:00" (if the current time is 2:30 PM)
+console.log(getCurrentTimeInTimeZone('America/New_York')); // Outputs: "10:30:00" (if the current time in New York is 10:30 AM)
+console.log(convertTimeBetweenTimeZones('2024-06-20T14:30:00', 'America/Los_Angeles', 'Asia/Tokyo')); // Outputs: "06:30:00" (next day)
+console.log(getTimeDifferenceBetweenTimeZones('America/Los_Angeles', 'Asia/Tokyo')); // Outputs: 16 (hours difference)
+console.log(addTime('2024-06-20', 5, 'days')); // Outputs: "2024-06-25"
+console.log(subtractTime('2024-06-20', 1, 'month')); // Outputs: "2024-05-20"
+
 ```
 
 ## Functions
@@ -130,3 +160,17 @@ console.log(isHoliday('2024-12-25', ['2024-12-25', '2024-01-01'])); // Outputs: 
 54. isSameOrBefore,
 55. isSameOrAfter,
 56. isHoliday,
+57. isWeekday
+58. getWeeksInYear
+59. calculateAge
+60. isToday
+61. isPast
+62. isFuture
+63. getStartOfNextMonth
+64. getEndOfPreviousMonth
+65. getTotalDaysBetween
+66. getTotalBusinessDaysBetween
+67. getNextDayOfWeek
+68. getPreviousDayOfWeek
+69. doRangesOverlap
+70. formatRelativeTime
