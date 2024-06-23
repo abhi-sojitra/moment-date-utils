@@ -174,3 +174,13 @@ console.log(subtractTime('2024-06-20', 1, 'month')); // Outputs: "2024-05-20"
 68. getPreviousDayOfWeek
 69. doRangesOverlap
 70. formatRelativeTime
+71. formatTimeWithAMPM
+72. getCurrentMonth
+73. getCurrentYear
+74. getCurrentDay
+75. getCurrentTime
+76. getCurrentTimeInTimeZone
+77. convertTimeBetweenTimeZones
+78. getTimeDifferenceBetweenTimeZones
+79. addTime
+80. subtractTime

@@ -572,6 +572,7 @@ function isHoliday(date, holidays) {
 }
 
 /**
+<<<<<<< HEAD
  * Check if a date is a weekday.
  * @param {Date|string} date - The date to check.
  * @returns {boolean} True if the date is a weekday, false otherwise.
@@ -812,6 +813,23 @@ function addTime(date, amount, unit) {
 function subtractTime(date, amount, unit) {
   return moment(date).subtract(amount, unit).toDate();
 }
+/**
+ * Convert a date to UTC.
+ * @param {Date|string} date - The date to convert.
+ * @returns {string} UTC date string.
+ */
+function convertToUTC(date) {
+  return moment(date).utc().format();
+}
+
+/**
+ * Convert a UTC date to local time.
+ * @param {string} utcDate - The UTC date string to convert.
+ * @returns {string} Local time date string.
+ */
+function convertUTCToLocal(utcDate) {
+  return moment.utc(utcDate).local().format();
+}
 
 module.exports = {
   formatDate,
@@ -894,4 +912,6 @@ module.exports = {
   getTimeDifferenceBetweenTimeZones,
   addTime,
   subtractTime,
+  convertToUTC,
+  convertUTCToLocal,
 };
